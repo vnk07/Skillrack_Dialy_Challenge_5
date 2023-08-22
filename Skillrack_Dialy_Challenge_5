@@ -1,0 +1,83 @@
+# *******Skillrack_Dialy_Challenge_5*******
+
+#Rotate String - Anti-Clockwise 
+
+
+
+The program accepts a string S and an integer N as the input. The program must rotate the string S for N times in anti-clockwise direction and print the modified string as the output. Boundary Condition(s): 1 <= Length of S <= 100 1 <= N <= 1000 Input Format: The first line contains S. The second line contains N. Output Format: The first line contains the modified string. 
+
+
+
+Example Input/Output 1: 
+
+
+Input: 
+mangoes 
+3 
+
+Output: 
+goesman
+
+
+Explanation: 
+After the first anti-clockwise rotation, the string becomes "angoesm".
+After the second anti-clockwise rotation, the string becomes "ngoesma". 
+After the third anti-clockwise rotation, the string becomes "goesman". 
+
+
+Hence the output is goesman Example 
+
+
+Input/Output 2: 
+
+Input: 
+hi 
+10 
+
+Output: 
+hi
+
+
+
+
+#include <stdio.h>
+
+#include <string.h>
+
+
+int main() {
+  
+    char s[101];
+
+  
+    int n;
+  
+
+    // Input string
+    scanf("%s", s);
+
+    // Input rotation count
+    scanf("%d", &n);
+
+    int len = strlen(s);
+
+    // Perform anti-clockwise rotations
+    n = n % len; // To handle cases where n is greater than the length of the string
+    for (int i = 0; i < n; i++) {
+        char temp = s[0];
+        for (int j = 0; j < len - 1; j++) {
+            s[j] = s[j + 1];
+        }
+        s[len - 1] = temp;
+    }
+
+  
+    // Print the modified string
+    printf("%s\n", s);
+  
+
+    return 0;
+}
+
+
+#Skillrack_Dialy_Challenge_5
